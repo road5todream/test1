@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>{% trans "Task manager" %}</title>
+    <title>{% trans 'Task manager' %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-static/">
 
@@ -40,20 +40,20 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="#">Task manager</a>
+  <a class="navbar-brand" href="{% url 'main_page' %}">{% trans 'Task manager' %}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">{% trans 'Users' %} <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'users' %}">{% trans 'Users' %} <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">{% trans 'Log in' %}</a>
+        <a class="nav-link" href="{% url 'login' %}">{% trans 'Login' %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">{% trans 'Sign in' %}</a>
+        <a class="nav-link" href="{% url 'create_user' %}">{% trans 'Registration' %}</a>
       </li>
     </ul>
   </div>
@@ -61,3 +61,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </html>
+
+{% block content %}
+    <h2>In this place will be registration</h2>
+{% endblock %}

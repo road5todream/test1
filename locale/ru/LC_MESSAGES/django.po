@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR <a.ch3re359@yandex.ru>, 2022 YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-11 21:40+0400\n"
+"POT-Creation-Date: 2022-11-13 19:38+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,31 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: templates/index.html:15
+#: templates/create_user.html:22
+msgid "First name"
+msgstr "Имя"
+
+#: templates/create_user.html:30
+msgid "Last name"
+msgstr "Фамилия"
+
+#: templates/create_user.html:38 templates/login.html:17
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/create_user.html:46 templates/login.html:22
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/create_user.html:54
+msgid "Confirm password"
+msgstr "Подтверждение пароля"
+
+#: templates/create_user.html:59
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: templates/index.html:15 templates/index.html:43
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -28,10 +52,20 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/index.html:53
+#: templates/index.html:53 templates/login.html:13
+msgid "Login"
+msgstr "Вход"
+
+#: templates/index.html:56
+msgid "Registration"
+msgstr "Зарегистрироваться"
+
+#: templates/login.html:28
 msgid "Log in"
 msgstr "Войти"
 
-#: templates/index.html:56
-msgid "Sign in"
-msgstr "Регистрация"
+#~ msgid "Sign in"
+#~ msgstr "Войти"
+
+#~ msgid "Sign up"
+#~ msgstr "Регистрация"
