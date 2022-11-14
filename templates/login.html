@@ -10,22 +10,22 @@
         <div class="card shadow-2-strong" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
-            <h3 class="mb-5">{% trans 'Login' %}</h3>
+            <form method="post" class="mx-1 mx-md-4">
+                {% csrf_token %}
 
-            <div class="form-outline mb-4">
-              <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  required/>
-              <label class="form-label" for="typeEmailX-2">{% trans 'Username' %}</label>
-            </div>
+                  {% for f in form %}
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                     {{ f.label }} : <br> {{ f }}
+                    </div>
+                  </div>
+                  {% endfor %}
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
 
-            <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" required/>
-              <label class="form-label" for="typePasswordX-2">{% trans 'Password' %}</label>
-            </div>
+                      <button type="submit" class="btn btn-primary btn-lg">{% trans 'Log in' %}</button>
 
-            <!-- Checkbox -->
-
-
-            <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans 'Log in' %}</button>
+                  </div>
 
             <hr class="my-4">
 

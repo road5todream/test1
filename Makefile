@@ -11,4 +11,7 @@ migrate:
 	poetry run python manage.py migrate
 
 makemigrate:
-	poetry run ./manage.py makemigrations task_manager
+	poetry run ./manage.py makemigrations
+
+shell:
+	poetry run python manage.py shell

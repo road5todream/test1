@@ -1,19 +1,12 @@
 from django.shortcuts import render
 from django.utils.translation import gettext as _
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
+from .services import auth_validate
 
 
 def main_page(request):
     return render(request, 'index.html')
 
 
-def users(request):
-    return render(request, 'users.html')
-
-
-def login(request):
-    return render(request, 'login.html')
-
-
-def create_user(request):
-    return render(request, 'create_user.html')
+def user_login(request: HttpRequest) -> HttpResponse:
+    return auth_validate(request)
