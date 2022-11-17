@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+<p>Confirm delete account</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-danger">Confirm</button>
+</form>
+
+{% endblock %}

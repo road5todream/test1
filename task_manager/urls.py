@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_page, name='main_page'),
     path('users/', include('task_manager.users.urls')),
-    path('login/', views.user_login, name='login'),
+    path('login/', views.Login.as_view(), name='login'),
+    path('logout/', views.logout_user, name='logout'),
 ]

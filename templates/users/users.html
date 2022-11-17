@@ -2,5 +2,32 @@
 
 
 {% block content %}
-    <h2>In this place will be users list</h2>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Creation date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for user in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ user.id }}</th>
+      <td>{{ user.username }}</td>
+      <td>{{ user.first_name }} {{ user.last_name }}</td>
+      <td>{{ user.created_at }}</td>
+      <td> <form action="{% url 'update_user' pk=user.id %}">
+      <button class="btn btn-secondary btn-sm">Изменить</button>
+      </form>
+      <form action="{% url 'delete_user' pk=user.id %}">
+      <button class="btn btn-secondary btn-sm">Удалить</button>
+      </form>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
 {% endblock %}

@@ -1,34 +1,25 @@
 {% extends 'index.html' %}
 {% load i18n %}
-{% load static %}
 
 {% block content %}
 <section class="vh-100" style="background-color: white;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+        <div class="card shadow-2-strong" style="border-radius: 2rem;">
           <div class="card-body p-5 text-center">
 
-            <form method="post" class="mx-1 mx-md-4">
-                {% csrf_token %}
+            <h3 class="mb-5">Sign in</h3>
 
-                  {% for f in form %}
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                     {{ f.label }} : <br> {{ f }}
-                    </div>
-                  </div>
-                  {% endfor %}
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+            <div class="form-outline mb-4">
+              <form method="post">
+              {% csrf_token %}
+              {{ form }}
+            </div>
 
-                      <button type="submit" class="btn btn-primary btn-lg">{% trans 'Log in' %}</button>
-
-                  </div>
+            <button class="btn btn-secondary btn-lg" type="submit">Login</button>
 
             <hr class="my-4">
-
 
           </div>
         </div>
@@ -36,4 +27,5 @@
     </div>
   </div>
 </section>
+
 {% endblock %}
