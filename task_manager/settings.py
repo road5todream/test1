@@ -136,3 +136,5 @@ LOCALE_PATHS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'users.Users'

@@ -16,15 +16,7 @@ class Login(LoginView):
 
     form_class = LoginForm
     template_name = 'login.html'
-
-    def form_valid(self, form):
-        user = form.get_user()
-        messages.success(self.request, f'Welcome, {user}')
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, 'Incorrect data entered')
-        return redirect('login')
+    success_message = 'Success'
 
 
 def logout_user(request):

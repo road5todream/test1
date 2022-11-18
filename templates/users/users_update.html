@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<h2>Update user profile with id {{ user_id }} </h2>
+<form method="post" action="{% url 'update_user' pk=user_id %}">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+
+
+{% endblock %}

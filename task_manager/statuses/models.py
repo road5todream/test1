@@ -8,3 +8,4 @@ class Statuses(models.Model):
 
     class Meta:
         verbose_name_plural = 'Statuses'
+    
