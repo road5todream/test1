@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UsernameField, \
-    UserCreationForm
+    UserCreationForm, UserChangeForm, PasswordChangeForm
 from .models import Users
 
 
@@ -20,22 +20,14 @@ class UserRegistrationForm(UserCreationForm):
             'username': forms.TextInput(attrs={'class': 'form-control',
                                                'placeholder': 'username',
                                                }),
+            'password1': forms.PasswordInput(attrs={'class': 'form-control',
+                                                'placeholder': 'username',
+                                                    }),
+            'password2': forms.PasswordInput(attrs={'class': 'form-control',
+                                                    'placeholder': 'username',
+                                                    }),
         }
 
 
-class LoginForm(AuthenticationForm):
-
-    username = UsernameField(widget=forms.TextInput(attrs={
-        "autofocus": True,
-        'class': 'form-control'
-    })
-    )
-
-    password = forms.CharField(
-        label="Password",
-        strip=False,
-        widget=forms.PasswordInput(attrs={
-            "autocomplete": "current-password",
-            'class': 'form-control',
-        }),
-    )
+class ChangeProfileForm(UserRegistrationForm):
+    pass

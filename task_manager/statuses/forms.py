@@ -2,7 +2,7 @@ from django import forms
 from .models import Statuses
 
 
-class StatusForm(forms.ModelForm):
+class CreateStatusForm(forms.ModelForm):
 
     class Meta:
         model = Statuses
@@ -11,3 +11,7 @@ class StatusForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control',
                                            'placeholder': 'name'}),
         }
+
+
+class ChangeStatusForm(CreateStatusForm):
+    pass

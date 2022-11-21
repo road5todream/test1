@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+  {% endif %}
+<br>
+<h2>Tasks</h2>
+<form action="{% url 'create_task' %}">
+    <button class="btn btn-outline-success">Create task</button>
+</form>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Author</th>
+      <th scope="col">Performer</th>
+      <th scope="col">Creation date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for task in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ task.pk }}</th>
+      <td><a href="{% url 'view_task' pk=task.id %}">{{ task.name }}</a></td>
+      <td>{{ task.status.name }}</td>
+      <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
+      <td>{{ task.performer }}</td>
+      <td>{{ task.created_at }}</td>
+      <td> <form action="{% url 'update_task' pk=task.id %}">
+      <button class="btn btn-outline-success">Change</button>
+      </form>
+      <form action="{% url 'delete_task' pk=task.id %}">
+      <button class="btn btn-outline-success">Delete</button>
+      </form>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

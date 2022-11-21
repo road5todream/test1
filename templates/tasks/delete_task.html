@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<p>Confirm delete account with id {{ user.pk }}</p>
+<p>Are you sure you want to delete {{ task.name }}</p>
 
 <form method="post">
     {% csrf_token %}

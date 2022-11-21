@@ -1,24 +1,24 @@
-from django.shortcuts import render
-from task_manager.users.forms import LoginForm
-from django.utils.translation import gettext as _
-from django.http import HttpResponse, HttpRequest
+import task_manager.services as svs
+from .forms import LoginForm
 from django.contrib.auth.views import LoginView
-from django.contrib import messages
 from django.contrib.auth import logout
-from django.shortcuts import redirect
 
 
-def main_page(request: HttpRequest) -> HttpResponse:
-    return render(request, 'index.html')
+def main_page(request: svs.HttpRequest) -> svs.HttpResponse:
+    return svs.render(request, 'index.html')
 
 
-class Login(LoginView):
+class Login(svs.SuccessMessageMixin,
+            LoginView,
+            ):
 
     form_class = LoginForm
     template_name = 'login.html'
     success_message = 'Success'
+    success_url = 'users'
+    redirect_authenticated_user = '/'
 
 
 def logout_user(request):
     logout(request)
-    return redirect('main_page')
+    return svs.redirect('main_page')
