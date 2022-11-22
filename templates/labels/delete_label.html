@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Deleting a label</h1>
+
+<form method="post">
+  {% csrf_token %}
+<p>Are you sure you want to delete {{ labels.name }}? </p>
+  <button type="submit" class="btn btn-danger">Yes, delete</button>
+</form>
+{% endblock %}

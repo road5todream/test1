@@ -10,7 +10,10 @@
   <p>Performer: {{ task.performer }}</p>
   <p>Status: {{ task.status.name }}</p>
   <p>Creation date: {{ task.created_at }} </p>
-  <p>Tags: {{ task.tag_id }} </p>
+  <p>Tags:
+  {% for tag in tag_id %}
+  {{ tag.name }}</p>
+  {% endfor %}
   <p></p>
   <form action="{% url 'update_task' pk=task.id %}">
   <button type="submit" class="btn btn-outline-success">Edit</button>

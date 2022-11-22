@@ -12,6 +12,7 @@ class CreateTaskForm(forms.ModelForm):
                   'status',
                   'creator',
                   'performer',
+                  'tag_id'
                   )
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
@@ -21,6 +22,8 @@ class CreateTaskForm(forms.ModelForm):
             'status': forms.Select(attrs={'class': 'form-control'}),
             'performer': forms.Select(attrs={'class': 'form-control'}),
             'creator': forms.HiddenInput(),
+            'tag_id': forms.SelectMultiple(attrs={'class': 'form-control',
+                                                  })
         }
 
 

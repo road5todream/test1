@@ -47,3 +47,12 @@ class DeleteStatus(svs.LoginRequiredMixin,
     success_url = svs.reverse_lazy('statuses')
     success_message = 'Status has been deleted'
     template_name = 'statuses/delete_status.html'
+
+    def form_valid(self, form):
+        try:
+            self.object.delete()
+        except svs.ProtectedError:
+            svs.messages.error(self.request, 'error')
+        finally:
+            return svs.redirect(self.success_url)
+

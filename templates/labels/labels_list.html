@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<br>
+<h2>Labels</h2>
+<form action="{% url 'create_label' %}">
+    <button class="btn btn-outline-success">Create label</button>
+</form>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Creation date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% for label in object_list %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ label.id }}</th>
+      <td>{{ label.name }}</td>
+      <td>{{ label.created_at }}</td>
+      <td> <form action="{% url 'update_label' pk=label.id %}">
+      <button class="btn btn-outline-success">Change</button>
+      </form>
+      <form action="{% url 'delete_label' pk=label.id %}">
+      <button class="btn btn-outline-success">Delete</button>
+      </form>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  </table>
+{% endblock %}

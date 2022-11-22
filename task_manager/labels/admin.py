@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Tags
+from .models import Labels
 
 
 class TagsAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Tags, TagsAdmin)
+admin.site.register(Labels, TagsAdmin)

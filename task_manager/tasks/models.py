@@ -1,8 +1,7 @@
-from django.urls import reverse
 from django.db import models
 from task_manager.users.models import Users
 from task_manager.statuses.models import Statuses
-from task_manager.tags.models import Tags
+from task_manager.labels.models import Labels
 
 
 class Tasks(models.Model):
@@ -13,13 +12,16 @@ class Tasks(models.Model):
     creator = models.ForeignKey(Users,
                                 on_delete=models.PROTECT,
                                 related_name='creator',
-                                default=None,
+                                default=True,
                                 blank=True
                                 )
     status = models.ForeignKey(Statuses,
                                on_delete=models.PROTECT,
                                )
-    tag_id = models.ManyToManyField(Tags)
+    tag_id = models.ManyToManyField(Labels,
+                                    through='RelationLink',
+                                    through_fields=('task', 'label'),
+                                    blank=True)
     performer = models.ForeignKey(Users,
                                   on_delete=models.PROTECT,
                                   related_name='performer')
@@ -30,3 +32,17 @@ class Tasks(models.Model):
 
     class Meta:
         verbose_name_plural = 'Tasks'
+
+
+class RelationLink(models.Model):
+    """An intermediate model for man-to-many communication between tasks and
+    labels. Needed to prohibit deletion of labels that are used"""
+    task = models.ForeignKey(to='tasks.Tasks',
+                             on_delete=models.CASCADE,
+                             default=0,
+                             null=True
+                             )
+    label = models.ForeignKey(to='labels.Labels', on_delete=models.PROTECT)
+
+    class Meta:
+        verbose_name = 'Relations'
