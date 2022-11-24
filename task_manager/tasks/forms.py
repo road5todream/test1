@@ -12,7 +12,7 @@ class CreateTaskForm(forms.ModelForm):
                   'status',
                   'creator',
                   'performer',
-                  'tag_id'
+                  'label'
                   )
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',

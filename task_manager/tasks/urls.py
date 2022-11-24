@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
+from .models import Tasks
 
 
 urlpatterns = [
-    path('', views.TasksListView.as_view(), name='tasks'),
+    path('', views.TasksFilterView.as_view(model=Tasks), name='tasks'),
     path('create/', views.CreateTaskView.as_view(), name='create_task'),
     path('<int:pk>/', views.TaskView.as_view(), name='view_task'),
     path('<int:pk>/update', views.UpdateTaskView.as_view(),

@@ -1,17 +1,20 @@
 import loguru
-
 from task_manager import services as svs
 from .models import Tasks
 from .forms import CreateTaskForm, UpdateTaskForm
+from .filters import TaskFilter
+from django_filters.views import FilterView
 
 
-class TasksListView(svs.LoginRequiredMixin,
-                    svs.ListView,
-                    ):
+class TasksFilterView(svs.LoginRequiredMixin,
+                      FilterView,
+                      ):
 
     login_url = '/login/'
     model = Tasks
     template_name = 'tasks/tasks_list.html'
+    filterset_class = TaskFilter
+    context_object_name = 'tasks'
 
 
 class CreateTaskView(svs.LoginRequiredMixin,
@@ -29,7 +32,7 @@ class CreateTaskView(svs.LoginRequiredMixin,
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'].fields['creator'].initial = self.request.user.pk
-        loguru.logger.info(context['form'].fields['tag_id'].choices)
+        loguru.logger.info(context['form'].fields['label'].choices)
         return context
 
 
@@ -40,6 +43,11 @@ class TaskView(svs.LoginRequiredMixin,
     login_url = '/login/'
     template_name = 'tasks/view_task.html'
     context_object_name = 'task'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        loguru.logger.info(context)
+        return context
 
 
 class UpdateTaskView(svs.LoginRequiredMixin,

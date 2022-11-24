@@ -18,10 +18,10 @@ class Tasks(models.Model):
     status = models.ForeignKey(Statuses,
                                on_delete=models.PROTECT,
                                )
-    tag_id = models.ManyToManyField(Labels,
-                                    through='RelationLink',
-                                    through_fields=('task', 'label'),
-                                    blank=True)
+    label = models.ManyToManyField(Labels,
+                                   through='RelationLink',
+                                   through_fields=('task', 'label'),
+                                   blank=True)
     performer = models.ForeignKey(Users,
                                   on_delete=models.PROTECT,
                                   related_name='performer')

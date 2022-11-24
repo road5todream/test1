@@ -52,5 +52,3 @@ class DeleteLabelView(svs.LoginRequiredMixin,
             svs.messages.error(self.request, 'error')
         finally:
             return svs.redirect(self.success_url)
-
-

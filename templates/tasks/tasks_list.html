@@ -9,6 +9,10 @@
   {% endif %}
 <br>
 <h2>Tasks</h2>
+<form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit" class="btn btn-outline-success">Show</button>
+    </form>
 <form action="{% url 'create_task' %}">
     <button class="btn btn-outline-success">Create task</button>
 </form>

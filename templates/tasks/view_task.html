@@ -2,7 +2,9 @@
 
 {% block content %}
 <h2>Task view</h2>
+
 <div class="jumbotron">
+
   <h1 class="display-4">{{ task.name }}</h1>
   <p class="lead">{{ task.description }}</p>
   <hr class="my-4">
@@ -11,8 +13,11 @@
   <p>Status: {{ task.status.name }}</p>
   <p>Creation date: {{ task.created_at }} </p>
   <p>Tags:
-  {% for tag in tag_id %}
-  {{ tag.name }}</p>
+  {% for tag in task.label.all %}
+    <ul>
+
+  <li>{{ tag.name }}</li></p>
+  </ul>
   {% endfor %}
   <p></p>
   <form action="{% url 'update_task' pk=task.id %}">
