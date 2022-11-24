@@ -1,12 +1,16 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-<h1>Deleting a label</h1>
+<div class="container col-7">
+  <br>
+<h1>{% trans 'Deleting a label' %}</h1>
 
 <form method="post">
-  {% csrf_token %}
-<p>Are you sure you want to delete {{ labels.name }}? </p>
-  <button type="submit" class="btn btn-danger">Yes, delete</button>
+    {% csrf_token %}
+    <p>{% trans 'Are you sure you want to remove' %} {{ labels.name }}?</p>
+    <button type="submit" class="btn btn-danger">{% trans 'Yes, delete' %}</button>
 </form>
+</div>
 {% endblock %}

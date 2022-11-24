@@ -1,21 +1,26 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <br>
-{% if messages %}
-  {% for message in messages %}
-    {{ message }}
-  {% endfor %}
-  {% endif %}
-<h2>Users</h2> <br>
+<h2>{% trans 'Users' %}</h2> <br>
+{% for msg in messages %}
+  {% if msg.tags == 'error' %}
+  <div class="alert alert-danger" role="alert">
+    {{ msg }}
+    {% else %}
+    <div class="alert alert-success" role="alert">
+      {{ msg }}
+      {% endif %}
+    {% endfor %}
+    </div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Username</th>
-      <th scope="col">Fullname</th>
-      <th scope="col">Creation date</th>
+      <th scope="col">{% trans 'Username' %}</th>
+      <th scope="col">{% trans 'Fullname' %}</th>
+      <th scope="col">{% trans 'Creation date' %}</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -28,10 +33,10 @@
       <td>{{ user.date_joined }}</td>
       <td>
         <form action="{% url 'update_user' pk=user.id %}">
-      <button type="submit" class="btn btn-outline-success">Update</button>
+      <button type="submit" class="btn btn-outline-success">{% trans 'Change' %}</button>
         </form>
         <form action="{% url 'delete_user' pk=user.id %}">
-      <button type="submit" class="btn btn-outline-success">Delete</button>
+      <button type="submit" class="btn btn-outline-success">{% trans 'Delete' %}</button>
         </form>
       </td>
     </tr>

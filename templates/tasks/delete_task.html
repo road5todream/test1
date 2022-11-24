@@ -1,14 +1,16 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-<p>Are you sure you want to delete {{ task.name }}</p>
+<div class="container col-7">
+  <br>
+<h1>{% trans 'Deleting a task' %}</h1>
 
 <form method="post">
     {% csrf_token %}
-
-    <button type="submit" class="btn btn-danger">Confirm</button>
+    <p>{% trans 'Are you sure you want to remove' %} {{ tasks.name }}?</p>
+    <button type="submit" class="btn btn-danger">{% trans 'Yes, delete' %}</button>
 </form>
-
+</div>
 {% endblock %}

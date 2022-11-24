@@ -15,15 +15,8 @@ class CreateTaskForm(forms.ModelForm):
                   'label'
                   )
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control',
-                                           'placeholder': 'name'}),
-            'description': forms.Textarea(attrs={'class': 'form-control',
-                                          'placeholder': 'description'}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
-            'performer': forms.Select(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(),
             'creator': forms.HiddenInput(),
-            'tag_id': forms.SelectMultiple(attrs={'class': 'form-control',
-                                                  })
         }
 
 

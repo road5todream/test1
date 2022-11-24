@@ -1,10 +1,11 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <br>
-<h2>Statuses</h2>
+<h2>{% trans 'Statuses' %}</h2>
 <form action="{% url 'create_status' %}">
-    <button class="btn btn-outline-success">Create status</button>
+    <button class="btn btn-outline-success">{% trans 'Create status' %}</button>
 </form>
 
 <table class="table">

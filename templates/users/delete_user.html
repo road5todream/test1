@@ -1,14 +1,17 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 
-<p>Confirm delete account with id {{ user.pk }}</p>
 
+<div class="container col-7">
+    <br>
+    <h1>{% trans 'Deleting a user' %}</h1>
 <form method="post">
     {% csrf_token %}
-
-    <button type="submit" class="btn btn-danger">Confirm</button>
+    <br>
+    <p>{% trans 'Are you sure you want to remove the user' %} {{ user.first_name }} {{ user.last_name }}?</p>
+    <button type="submit" class="btn btn-danger">{% trans 'Yes, delete' %}</button>
 </form>
-
+</div>
 {% endblock %}

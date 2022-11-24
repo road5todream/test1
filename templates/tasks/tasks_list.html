@@ -1,31 +1,30 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
 
 {% block content %}
-{% if messages %}
-  {% for message in messages %}
-    {{ message }}
-  {% endfor %}
-  {% endif %}
 <br>
-<h2>Tasks</h2>
-<form method="get">
-        {{ filter.form.as_p }}
-        <button type="submit" class="btn btn-outline-success">Show</button>
-    </form>
-<form action="{% url 'create_task' %}">
-    <button class="btn btn-outline-success">Create task</button>
+<div class="container col-10">
+<h2>{% trans 'Tasks' %}</h2>
+  <form action="{% url 'create_task' %}">
+    <button class="btn btn-outline-success">{% trans 'Create task' %}</button>
 </form>
+<form method="get">
+        {% bootstrap_form filter.form %}
+      <br>
+    <button type="submit" class="btn btn-outline-success">{% trans 'Show' %}</button>
+    </form>
+</div>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Status</th>
-      <th scope="col">Author</th>
-      <th scope="col">Performer</th>
-      <th scope="col">Creation date</th>
+      <th scope="col">{% trans 'Name' %}</th>
+      <th scope="col">{% trans 'Status' %}</th>
+      <th scope="col">{% trans 'Author' %}</th>
+      <th scope="col">{% trans 'Performer' %}</th>
+      <th scope="col">{% trans 'Creation date' %}</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -39,10 +38,10 @@
       <td>{{ task.performer }}</td>
       <td>{{ task.created_at }}</td>
       <td> <form action="{% url 'update_task' pk=task.id %}">
-      <button class="btn btn-outline-success">Change</button>
+      <button class="btn btn-outline-success">{% trans 'Change' %}</button>
       </form>
       <form action="{% url 'delete_task' pk=task.id %}">
-      <button class="btn btn-outline-success">Delete</button>
+      <button class="btn btn-outline-success">{% trans 'Delete' %}</button>
       </form>
       </td>
     </tr>

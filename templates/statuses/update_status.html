@@ -1,10 +1,15 @@
-{% extends 'index.html' %}
-
+{% extends 'base.html' %}
+{% load i18n %}
+{% load bootstrap4 %}
 
 {% block content %}
-<form method="post">
-  {% csrf_token %}
-    {{ form.as_p }}
-    <input class="btn btn-secondary btn-sm" type="submit" value="Update">
+<div class="container col-7 ">
+    <br>
+    <h3 class="mb-3 text-left">{% trans 'Changing the status' %}</h3>
+    <form method="post">
+{% csrf_token %}
+{% bootstrap_form form %}
+
+<button type="submit" class="btn btn-outline-success">{% trans 'Change' %}</button>
 </form>
 {% endblock %}

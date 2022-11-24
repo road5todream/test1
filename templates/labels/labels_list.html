@@ -1,18 +1,19 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <br>
-<h2>Labels</h2>
+<h2>{% trans 'Labels' %}</h2>
 <form action="{% url 'create_label' %}">
-    <button class="btn btn-outline-success">Create label</button>
+    <button class="btn btn-outline-success">{% trans 'Create label' %}</button>
 </form>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Creation date</th>
+      <th scope="col">{% trans 'Name' %}</th>
+      <th scope="col">{% trans 'Creation date' %}</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -23,10 +24,10 @@
       <td>{{ label.name }}</td>
       <td>{{ label.created_at }}</td>
       <td> <form action="{% url 'update_label' pk=label.id %}">
-      <button class="btn btn-outline-success">Change</button>
+      <button class="btn btn-outline-success">{% trans 'Change' %}</button>
       </form>
       <form action="{% url 'delete_label' pk=label.id %}">
-      <button class="btn btn-outline-success">Delete</button>
+      <button class="btn btn-outline-success">{% trans 'Delete' %}</button>
       </form>
       </td>
     </tr>

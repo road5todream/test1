@@ -16,7 +16,7 @@ class RegisterUser(svs.SuccessMessageMixin,
     form_class = UserRegistrationForm
     template_name = 'users/create_user.html'
     success_url = '/login/'
-    success_message = 'Registration Complete'
+    success_message = svs.FlashMessages.REGISTER_SUCCESS.value
 
 
 class UpdateUserView(svs.LoginRequiredMixin,
@@ -30,7 +30,7 @@ class UpdateUserView(svs.LoginRequiredMixin,
     template_name = 'users/update_user.html'
     login_url = '/login/'
     success_url = svs.reverse_lazy('users')
-    success_message = 'User has been updated'
+    success_message = svs.FlashMessages.USER_SUCCESSFULLY_CHANGED.value
 
 
 class DeleteUserView(svs.LoginRequiredMixin,

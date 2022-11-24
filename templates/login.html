@@ -1,31 +1,30 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load i18n %}
+{% load bootstrap4 %}
 
 {% block content %}
-<section class="vh-100" style="background-color: white;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 2rem;">
-          <div class="card-body p-5 text-center">
-
-            <h3 class="mb-5">Sign in</h3>
-
-            <div class="form-outline mb-4">
-              <form method="post">
-              {% csrf_token %}
-              {{ form }}
-            </div>
-
-            <button class="btn btn-secondary btn-lg" type="submit">Login</button>
-
-            <hr class="my-4">
-
-          </div>
+<form method="POST">
+  <br>
+  <div class="container wrapper flex-grow-1">
+      {% for msg in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ msg }}
         </div>
-      </div>
-    </div>
+      {% endfor %}
+      {% if error_messages %}
+
+      <div class="alert alert-danger" role="alert">
+            {{ error_messages }}
+         </div>
+      {% endif %}
+      <h1>{% trans 'Login' %}</h1>
+      <br>
+  <div class="mb-3">
+      {% csrf_token %}
+    {% bootstrap_form form %}
+  <button type="submit" class="btn btn-outline-success">{% trans 'Log on' %}</button>
   </div>
-</section>
+  </div>
+</form>
 
 {% endblock %}

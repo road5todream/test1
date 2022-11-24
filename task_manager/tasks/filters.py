@@ -3,6 +3,7 @@ import django_filters
 from task_manager.statuses.models import Statuses
 from task_manager.users.models import Users
 from task_manager.labels.models import Labels
+from django.utils.translation import gettext as _
 from django import forms
 
 
@@ -33,7 +34,7 @@ class TaskFilter(django_filters.FilterSet):
         })
     )
     self_task = django_filters.BooleanFilter(
-        label='Only their tasks',
+        label=_('Only their tasks'),
         method='self_widget_filter',
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input',

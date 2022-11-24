@@ -1,3 +1,4 @@
+import loguru
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.shortcuts import render, redirect
@@ -16,6 +17,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, \
     PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
+from .dataclasses import FlashMessages
+
 
 class PermissionMixin:
 
@@ -24,7 +27,9 @@ class PermissionMixin:
 
     def dispatch(self, request, *args, **kwargs):
         if not self.has_permission():
-            messages.error(request, 'You haven\'t permission')
+            messages.error(request,
+                           FlashMessages.NO_PERMIT_TO_CHANGE_USER.value)
+
             return redirect('users')
         return super().dispatch(request, *args, **kwargs)
 

@@ -1,4 +1,5 @@
 from django.db import models
+from task_manager.dataclasses import VerboseName
 from task_manager.users.models import Users
 from task_manager.statuses.models import Statuses
 from task_manager.labels.models import Labels
@@ -6,32 +7,34 @@ from task_manager.labels.models import Labels
 
 class Tasks(models.Model):
     """Models for tasks"""
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=150,
+                            verbose_name=VerboseName.NAME.value
+                            )
     description = models.CharField(max_length=1000,
+                                   verbose_name=VerboseName.DESCRIPTION.value,
                                    default='')
     creator = models.ForeignKey(Users,
                                 on_delete=models.PROTECT,
-                                related_name='creator',
                                 default=True,
                                 blank=True
                                 )
     status = models.ForeignKey(Statuses,
+                               verbose_name=VerboseName.STATUS.value,
                                on_delete=models.PROTECT,
                                )
     label = models.ManyToManyField(Labels,
+                                   verbose_name=VerboseName.LABEL.value,
                                    through='RelationLink',
                                    through_fields=('task', 'label'),
                                    blank=True)
     performer = models.ForeignKey(Users,
+                                  verbose_name=VerboseName.PERFORMER.value,
                                   on_delete=models.PROTECT,
                                   related_name='performer')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.name)
-
-    class Meta:
-        verbose_name_plural = 'Tasks'
 
 
 class RelationLink(models.Model):
@@ -43,6 +46,3 @@ class RelationLink(models.Model):
                              null=True
                              )
     label = models.ForeignKey(to='labels.Labels', on_delete=models.PROTECT)
-
-    class Meta:
-        verbose_name = 'Relations'
