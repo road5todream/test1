@@ -8,6 +8,18 @@
     <button class="btn btn-outline-success">{% trans 'Create status' %}</button>
 </form>
 
+{% for msg in messages %}
+{% if msg.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+      {{ msg }}
+      </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+      {{ msg }}
+      </div>
+{% endif %}
+{% endfor %}
+
 <table class="table">
   <thead class="thead-dark">
     <tr>

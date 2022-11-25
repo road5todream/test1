@@ -6,10 +6,19 @@
 <form method="POST">
   <br>
   <div class="container wrapper flex-grow-1">
+      {% for er in errors %}
+      {{ er }}
+      {% endfor %}
       {% for msg in messages %}
+      {% if msg.tags == 'success' %}
         <div class="alert alert-success" role="alert">
             {{ msg }}
         </div>
+      {% else %}
+       <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+      {% endif %}
       {% endfor %}
       {% if error_messages %}
 

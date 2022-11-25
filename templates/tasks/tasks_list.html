@@ -9,6 +9,17 @@
   <form action="{% url 'create_task' %}">
     <button class="btn btn-outline-success">{% trans 'Create task' %}</button>
 </form>
+  {% for msg in messages %}
+{% if msg.tags == 'success' %}
+<div class="alert alert-success" role="alert">
+      {{ msg }}
+      </div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+      {{ msg }}
+      </div>
+{% endif %}
+{% endfor %}
 <form method="get">
         {% bootstrap_form filter.form %}
       <br>

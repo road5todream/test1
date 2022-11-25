@@ -8,12 +8,13 @@
   {% if msg.tags == 'error' %}
   <div class="alert alert-danger" role="alert">
     {{ msg }}
+  </div>
     {% else %}
     <div class="alert alert-success" role="alert">
       {{ msg }}
-      {% endif %}
+      </div>
+   {% endif %}
     {% endfor %}
-    </div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
