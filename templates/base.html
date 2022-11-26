@@ -46,12 +46,8 @@
       <button type="submit" class="btn btn-outline-success">{% trans 'Log out' %}</button>
     </form>
     {% else %}
-    <form action="{% url 'login' %}" class="form-inline my-2 my-lg-0">
-    <button type="submit" class="btn btn-outline-success">{% trans 'Login' %}</button>
-    </form>
-    <form action="{% url 'create_user' %}" class="form-inline my-2 my-lg-0">
-    <button type="submit" class="btn btn-outline-success">{% trans 'Registration' %}</button>
-    </form>
+    <a href="{% url 'login' %}" class="btn btn-outline-success">{% trans 'Login' %}</a>
+    <a href="{% url 'create_user' %}" class="btn btn-outline-success">{% trans 'Registration' %}</a>
   </div>
     {% endif %}
 
