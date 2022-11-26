@@ -28,6 +28,7 @@ class TaskFilter(django_filters.FilterSet):
             'class': 'form-select',
         }))
     label = django_filters.ModelChoiceFilter(
+        label=_('Label'),
         queryset=Labels.objects.all(),
         widget=forms.Select(attrs={
             'class': 'form-select',

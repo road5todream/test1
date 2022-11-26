@@ -16,11 +16,11 @@
   <p>{% trans 'Performer' %}: {{ task.performer }}</p>
   <p>{% trans 'Status' %}: {{ task.status.name }}</p>
   <p>{% trans 'Creation date' %}: {{ task.created_at }} </p>
-  <p>{% trans 'Label' %}:
-  {% for tag in task.label.all %}
+  <p>{% trans 'Labels' %}:
+  {% for label in task.label.all %}
     <ul>
 
-  <li>{{ tag.name }}</li>
+  <li>{{ label.name }}</li>
   </ul>
   </p>
   {% endfor %}

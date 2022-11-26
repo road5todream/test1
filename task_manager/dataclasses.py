@@ -6,7 +6,7 @@ class VerboseName(Enum):
     NAME = _('Name')
     STATUS = _('Status')
     PERFORMER = _('Performer')
-    LABEL = _('Label')
+    LABELS = _('Labels')
     DESCRIPTION = _('Description')
 
 
