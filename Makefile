@@ -15,3 +15,6 @@ makemigrate:
 
 shell:
 	poetry run python manage.py shell
+
+test:
+	poetry run ./manage.py test

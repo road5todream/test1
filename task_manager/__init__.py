@@ -1,5 +1,4 @@
 import django
-
 django.setup()
 
 from django.contrib import messages
@@ -12,11 +11,9 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import UpdateView
 from django.views.generic import DeleteView, UpdateView, CreateView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin, \
-    PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
 from .dataclasses import FlashMessages
@@ -30,4 +27,17 @@ __all__ = [
     'UserChangeAccessMixin',
     'UserDeleteAccessMixin',
     'PermissionMixin',
+    'messages',
+    'redirect',
+    'render',
+    'reverse_lazy',
+    'View',
+    'LoginRequiredMixin',
+    'HttpResponse',
+    'HttpRequest',
+    'DetailView',
+    'UpdateView',
+    'DeleteView',
+    'PermissionRequiredMixin',
+    'ProtectedError',
 ]

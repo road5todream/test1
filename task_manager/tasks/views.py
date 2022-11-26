@@ -1,4 +1,3 @@
-import loguru
 from task_manager.settings import REDIRECT_TO_LOGIN
 from .models import Tasks
 from .forms import CreateTaskForm, UpdateTaskForm

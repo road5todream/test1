@@ -39,5 +39,5 @@ class DeleteUserView(tm.UserDeleteAccessMixin,
                      ):
     login_url = REDIRECT_TO_LOGIN
     model = Users
-    success_url = tm.reverse_lazy(tm.settings.REDIRECT_TO_LOGIN)
+    success_url = tm.reverse_lazy('users')
     template_name = 'users/delete_user.html'
