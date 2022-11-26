@@ -18,6 +18,7 @@ class CreateTaskForm(forms.ModelForm):
         widgets = {
             'description': forms.Textarea(),
             'creator': forms.HiddenInput(),
+            'label': forms.Select(attrs={'multiple': ''})
         }
 
 

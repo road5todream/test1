@@ -15,7 +15,7 @@
   <p>{% trans 'Author' %}: {{ task.creator.first_name }} {{ task.creator.last_name }}</p>
   <p>{% trans 'Executor' %}: {{ task.executor }}</p>
   <p>{% trans 'Status' %}: {{ task.status.name }}</p>
-  <p>{% trans 'Creation date' %}: {{ task.created_at|date:'d.m.Y h:mF' }} </p>
+  <p>{% trans 'Creation date' %}: {{ task.created_at|date:'d.m.Y h:m' }} </p>
   <p>{% trans 'Labels' %}:
   {% for label in task.label.all %}
     <ul>
