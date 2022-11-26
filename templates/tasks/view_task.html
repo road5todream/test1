@@ -13,7 +13,7 @@
   <p class="lead">{{ task.description }}</p>
   <hr class="my-4">
   <p>{% trans 'Author' %}: {{ task.creator.first_name }} {{ task.creator.last_name }}</p>
-  <p>{% trans 'Performer' %}: {{ task.performer }}</p>
+  <p>{% trans 'Executor' %}: {{ task.executor }}</p>
   <p>{% trans 'Status' %}: {{ task.status.name }}</p>
   <p>{% trans 'Creation date' %}: {{ task.created_at }} </p>
   <p>{% trans 'Labels' %}:
