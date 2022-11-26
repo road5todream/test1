@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 22:19+0400\n"
+"POT-Creation-Date: 2022-11-27 00:36+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/dataclasses.py:6 templates/labels/labels_list.html:27
+#: task_manager/dataclasses.py:6 templates/labels/labels_list.html:26
 #: templates/tasks/tasks_list.html:34
 msgid "Name"
 msgstr "Имя"
@@ -152,27 +152,27 @@ msgstr "Задачи"
 msgid "Log out"
 msgstr "Выход"
 
-#: templates/base.html:50 templates/login.html:29
+#: templates/base.html:49 templates/login.html:29
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:53 templates/users/create_user.html:9
+#: templates/base.html:50 templates/users/create_user.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
-#: templates/base.html:68
+#: templates/base.html:64
 msgid "Greetings from the hexlet"
 msgstr "Привет от Хекслета!"
 
-#: templates/base.html:69
+#: templates/base.html:65
 msgid "Practical programming courses"
 msgstr "Практические курсы по программированию"
 
-#: templates/base.html:70
+#: templates/base.html:66
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: templates/labels/create_label.html:8 templates/labels/labels_list.html:8
+#: templates/labels/create_label.html:8 templates/labels/labels_list.html:7
 msgid "Create label"
 msgstr "Создать метку"
 
@@ -196,19 +196,21 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: templates/labels/labels_list.html:28 templates/tasks/tasks_list.html:38
+#: templates/labels/labels_list.html:27 templates/tasks/tasks_list.html:38
 #: templates/tasks/view_task.html:18 templates/users/users_list.html:24
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: templates/labels/labels_list.html:39 templates/labels/update_label.html:13
+#: templates/labels/labels_list.html:38 templates/labels/update_label.html:13
+#: templates/statuses/statuses_list.html:37
 #: templates/statuses/update_status.html:13 templates/tasks/tasks_list.html:52
 #: templates/tasks/update_task.html:17 templates/tasks/view_task.html:28
 #: templates/users/update_user.html:15 templates/users/users_list.html:37
 msgid "Change"
 msgstr "Изменить"
 
-#: templates/labels/labels_list.html:42 templates/tasks/tasks_list.html:55
+#: templates/labels/labels_list.html:39
+#: templates/statuses/statuses_list.html:38 templates/tasks/tasks_list.html:55
 #: templates/tasks/view_task.html:31 templates/users/users_list.html:40
 msgid "Delete"
 msgstr "Удалить"
@@ -222,7 +224,7 @@ msgid "Log on"
 msgstr "Войти"
 
 #: templates/statuses/create_status.html:8
-#: templates/statuses/statuses_list.html:8
+#: templates/statuses/statuses_list.html:7
 msgid "Create status"
 msgstr "Создать статус"
 

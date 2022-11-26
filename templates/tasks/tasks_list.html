@@ -6,9 +6,8 @@
 <br>
 <div class="container col-10">
 <h2>{% trans 'Tasks' %}</h2>
-  <form action="{% url 'create_task' %}">
-    <button class="btn btn-outline-success">{% trans 'Create task' %}</button>
-</form>
+    <a href="{% url 'create_task' %}" class="btn btn-outline-success">{% trans 'Create task' %}</a>
+
   {% for msg in messages %}
 {% if msg.tags == 'success' %}
 <div class="alert alert-success" role="alert">
@@ -48,12 +47,11 @@
       <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
       <td>{{ task.performer }}</td>
       <td>{{ task.created_at }}</td>
-      <td> <form action="{% url 'update_task' pk=task.id %}">
-      <button class="btn btn-outline-success">{% trans 'Change' %}</button>
-      </form>
-      <form action="{% url 'delete_task' pk=task.id %}">
-      <button class="btn btn-outline-success">{% trans 'Delete' %}</button>
-      </form>
+      <td>
+      <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+
+      <a href="{% url 'delete_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+
       </td>
     </tr>
   </tbody>

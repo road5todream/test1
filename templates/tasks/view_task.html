@@ -24,12 +24,9 @@
   </ul>
   </p>
   {% endfor %}
-  <form action="{% url 'update_task' pk=task.id %}">
-  <button type="submit" class="btn btn-outline-success">{% trans 'Change' %}</button>
-  </form>
-  <form action="{% url 'delete_task' pk=task.id %}">
-  <button type="submit" class="btn btn-outline-success">{% trans 'Delete' %}</button>
-  </form>
+  <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+  <a href="{% url 'delete_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
+
 </div>
 {% endblock %}
 

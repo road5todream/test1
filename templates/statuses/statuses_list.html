@@ -4,9 +4,7 @@
 {% block content %}
 <br>
 <h2>{% trans 'Statuses' %}</h2>
-<form action="{% url 'create_status' %}">
-    <button class="btn btn-outline-success">{% trans 'Create status' %}</button>
-</form>
+<a href="{% url 'create_status' %}" class="btn btn-outline-success">{% trans 'Create status' %}</a>
 
 {% for msg in messages %}
 {% if msg.tags == 'success' %}
@@ -35,12 +33,9 @@
       <th scope="row">{{ status.id }}</th>
       <td>{{ status.name }}</td>
       <td>{{ status.created_at }}</td>
-      <td> <form action="{% url 'update_status' pk=status.id %}">
-      <button class="btn btn-outline-success">Изменить</button>
-      </form>
-      <form action="{% url 'delete_status' pk=status.id %}">
-      <button class="btn btn-outline-success">Удалить</button>
-      </form>
+      <td>
+      <a href="{% url 'update_status' pk=status.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+      <a href="{% url 'delete_status' pk=status.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
       </td>
     </tr>
   </tbody>

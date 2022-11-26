@@ -4,9 +4,8 @@
 {% block content %}
 <br>
 <h2>{% trans 'Labels' %}</h2>
-<form action="{% url 'create_label' %}">
-    <button class="btn btn-outline-success">{% trans 'Create label' %}</button>
-</form>
+<a href="{% url 'create_label' %}" class="btn btn-outline-success">{% trans 'Create label' %}</a>
+
 
 {% for msg in messages %}
 {% if msg.tags == 'success' %}
@@ -35,12 +34,9 @@
       <th scope="row">{{ label.id }}</th>
       <td>{{ label.name }}</td>
       <td>{{ label.created_at }}</td>
-      <td> <form action="{% url 'update_label' pk=label.id %}">
-      <button class="btn btn-outline-success">{% trans 'Change' %}</button>
-      </form>
-      <form action="{% url 'delete_label' pk=label.id %}">
-      <button class="btn btn-outline-success">{% trans 'Delete' %}</button>
-      </form>
+      <td>
+      <a href="{% url 'update_label' pk=label.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
+      <a href="{% url 'delete_label' pk=label.id %}" class="btn btn-outline-success">{% trans 'Delete' %}</a>
       </td>
     </tr>
   </tbody>
