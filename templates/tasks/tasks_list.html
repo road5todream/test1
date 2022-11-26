@@ -46,7 +46,7 @@
       <td>{{ task.status.name }}</td>
       <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
       <td>{{ task.executor }}</td>
-      <td>{{ task.created_at }}</td>
+      <td>{{ task.created_at|date:'d.m.Y h:m' }}</td>
       <td>
       <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>
 
