@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-27 01:16+0400\n"
+"POT-Creation-Date: 2022-11-27 02:30+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,98 +35,98 @@ msgstr "Статус"
 msgid "Performer"
 msgstr "Исполнитель"
 
-#: task_manager/dataclasses.py:9 templates/base.html:31
+#: task_manager/dataclasses.py:9 task_manager/tasks/filters.py:31
+msgid "Label"
+msgstr "Метка"
+
+#: task_manager/dataclasses.py:10 templates/base.html:31
 #: templates/labels/labels_list.html:6 templates/tasks/view_task.html:19
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/dataclasses.py:10
+#: task_manager/dataclasses.py:11
 msgid "Description"
 msgstr "Описание"
 
-#: task_manager/dataclasses.py:14
+#: task_manager/dataclasses.py:15
 msgid "User is successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/dataclasses.py:15
+#: task_manager/dataclasses.py:16
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/dataclasses.py:16
+#: task_manager/dataclasses.py:17
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
-#: task_manager/dataclasses.py:17
+#: task_manager/dataclasses.py:18
 msgid "You have no rights to change another user"
 msgstr "У вас нет прав для изменения другого пользователя"
 
-#: task_manager/dataclasses.py:18
+#: task_manager/dataclasses.py:19
 msgid "User successfully changed"
 msgstr "Пользователь успешно изменён"
 
-#: task_manager/dataclasses.py:19
+#: task_manager/dataclasses.py:20
 msgid "User successfully delete"
 msgstr "Пользователь успешно удалён"
 
-#: task_manager/dataclasses.py:20
+#: task_manager/dataclasses.py:21
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: task_manager/dataclasses.py:21
+#: task_manager/dataclasses.py:22
 msgid "Unable to delete a user because he is being used"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/dataclasses.py:22
+#: task_manager/dataclasses.py:23
 msgid "Status successfully created"
 msgstr "Статус успешно создан"
 
-#: task_manager/dataclasses.py:23
+#: task_manager/dataclasses.py:24
 msgid "Status successfully changed"
 msgstr "Статус успешно изменён"
 
-#: task_manager/dataclasses.py:24
+#: task_manager/dataclasses.py:25
 msgid "It is impossible to delete a status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/dataclasses.py:26
+#: task_manager/dataclasses.py:27
 msgid "Status successfully deleted"
 msgstr "Статус успешно удалён"
 
-#: task_manager/dataclasses.py:27
+#: task_manager/dataclasses.py:28
 msgid "Label successfully created"
 msgstr "Метка успешно создана"
 
-#: task_manager/dataclasses.py:28
+#: task_manager/dataclasses.py:29
 msgid "Label successfully changed"
 msgstr "Метка успешно изменена"
 
-#: task_manager/dataclasses.py:29
+#: task_manager/dataclasses.py:30
 msgid "Label successfully deleted"
 msgstr "Метка успешно удалена"
 
-#: task_manager/dataclasses.py:30
+#: task_manager/dataclasses.py:31
 msgid "It is impossible to delete a label because it is in use"
 msgstr "Невозможно удалить метку, потому что она используется "
 
-#: task_manager/dataclasses.py:32
+#: task_manager/dataclasses.py:33
 msgid "Task successfully created"
 msgstr "Задача успешно создана"
 
-#: task_manager/dataclasses.py:33
+#: task_manager/dataclasses.py:34
 msgid "Task successfully changed"
 msgstr "Задача успешно изменена"
 
-#: task_manager/dataclasses.py:34
+#: task_manager/dataclasses.py:35
 msgid "Task successfully deleted"
 msgstr "Задача успешно удалена"
 
-#: task_manager/dataclasses.py:35
+#: task_manager/dataclasses.py:36
 msgid "The task can be deleted only by its author"
 msgstr "Задачу может удалить только её автор"
-
-#: task_manager/tasks/filters.py:31
-msgid "Label"
-msgstr "Меткa"
 
 #: task_manager/tasks/filters.py:38
 msgid "Only their tasks"
