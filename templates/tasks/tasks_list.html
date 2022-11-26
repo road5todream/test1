@@ -33,7 +33,7 @@
       <th scope="col">{% trans 'Name' %}</th>
       <th scope="col">{% trans 'Status' %}</th>
       <th scope="col">{% trans 'Author' %}</th>
-      <th scope="col">{% trans 'Performer' %}</th>
+      <th scope="col">{% trans 'Executor' %}</th>
       <th scope="col">{% trans 'Creation date' %}</th>
       <th scope="col"></th>
     </tr>
@@ -45,7 +45,7 @@
       <td><a href="{% url 'view_task' pk=task.id %}">{{ task.name }}</a></td>
       <td>{{ task.status.name }}</td>
       <td>{{ task.creator.first_name }} {{ task.creator.last_name }}</td>
-      <td>{{ task.performer }}</td>
+      <td>{{ task.executor }}</td>
       <td>{{ task.created_at }}</td>
       <td>
       <a href="{% url 'update_task' pk=task.id %}" class="btn btn-outline-success">{% trans 'Change' %}</a>

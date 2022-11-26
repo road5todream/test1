@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 class VerboseName(Enum):
     NAME = _('Name')
     STATUS = _('Status')
-    PERFORMER = _('Performer')
+    EXECUTOR = _('Executor')
     LABEL = _('Label')
     LABELS = _('Labels')
     DESCRIPTION = _('Description')

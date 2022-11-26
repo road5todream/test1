@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-27 02:30+0400\n"
+"POT-Creation-Date: 2022-11-27 02:49+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Статус"
 
 #: task_manager/dataclasses.py:8 templates/tasks/tasks_list.html:36
 #: templates/tasks/view_task.html:16
-msgid "Performer"
+msgid "Executor"
 msgstr "Исполнитель"
 
 #: task_manager/dataclasses.py:9 task_manager/tasks/filters.py:31
@@ -284,6 +284,9 @@ msgstr "Имя пользователя"
 #: templates/users/users_list.html:23
 msgid "Fullname"
 msgstr "Полное имя"
+
+#~ msgid "Performer"
+#~ msgstr "Исполнитель"
 
 #~ msgid "Описание"
 #~ msgstr "Регистрация"

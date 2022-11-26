@@ -22,7 +22,7 @@ class TaskFilter(django_filters.FilterSet):
         widget=forms.Select(attrs={
             'class': 'form-select',
         }))
-    performer = django_filters.ModelChoiceFilter(
+    executor = django_filters.ModelChoiceFilter(
         queryset=Users.objects.all(),
         widget=forms.Select(attrs={
             'class': 'form-select',
@@ -46,7 +46,7 @@ class TaskFilter(django_filters.FilterSet):
         model = Tasks
         fields = (
             'status',
-            'performer',
+            'executor',
             'label',
         )
 

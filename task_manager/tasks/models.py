@@ -27,10 +27,10 @@ class Tasks(models.Model):
                                    through='RelationLink',
                                    through_fields=('task', 'label'),
                                    blank=True)
-    performer = models.ForeignKey(Users,
-                                  verbose_name=VerboseName.PERFORMER.value,
-                                  on_delete=models.PROTECT,
-                                  related_name='performer')
+    executor = models.ForeignKey(Users,
+                                 verbose_name=VerboseName.EXECUTOR.value,
+                                 on_delete=models.PROTECT,
+                                 related_name='performer')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

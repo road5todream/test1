@@ -12,7 +12,7 @@ class CreateTaskForm(forms.ModelForm):
                   'description',
                   'status',
                   'creator',
-                  'performer',
+                  'executor',
                   'label'
                   )
         widgets = {
