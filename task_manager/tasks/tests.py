@@ -30,7 +30,7 @@ class CrudTasksTestCase(TestCase):
             'status': self.status.id,
             'executor': self.user.id,
             'creator': self.user.id,
-            'labels':  self.label.id
+            'labels': self.label.id,
         }
 
     def test_display_task_if_no_auth(self):
@@ -93,4 +93,4 @@ class CrudTasksTestCase(TestCase):
         self.assertRedirects(request, self.tasks)
         self.assertTrue(
             len(Tasks.objects.all()) == self.tasks_count_before_test
-                )
+        )

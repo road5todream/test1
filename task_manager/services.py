@@ -1,4 +1,7 @@
-import task_manager as tm
+from .dataclasses import FlashMessages
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.db.models import ProtectedError
 
 
 class UserChangeAccessMixin:
@@ -10,19 +13,19 @@ class UserChangeAccessMixin:
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            tm.messages.error(
+            messages.error(
                 request,
-                tm.FlashMessages.NO_AUTHENTICATION.value,
+                FlashMessages.NO_AUTHENTICATION.value,
             )
 
             return self.handle_no_permission()
 
         elif not self.has_permission():
-            tm.messages.error(
+            messages.error(
                 request,
-                tm.FlashMessages.NO_PERMIT_TO_CHANGE_USER.value,
+                FlashMessages.NO_PERMIT_TO_CHANGE_USER.value,
             )
-            return tm.redirect('users')
+            return redirect('users')
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -31,15 +34,15 @@ class UserDeleteAccessMixin(UserChangeAccessMixin):
     def form_valid(self, form):
         try:
             self.object.delete()
-            tm.messages.success(
-                self.request, tm.FlashMessages.USER_SUCCESSFULLY_DELETE.value
+            messages.success(
+                self.request, FlashMessages.USER_SUCCESSFULLY_DELETE.value
             )
-            return tm.redirect('users')
+            return redirect('users')
 
-        except tm.ProtectedError:
-            tm.messages.error(self.request,
-                              tm.FlashMessages.USER_IS_USING.value)
-            return tm.redirect('users')
+        except ProtectedError:
+            messages.error(self.request,
+                           FlashMessages.USER_IS_USING.value)
+            return redirect('users')
 
 
 class PermissionMixin:
@@ -47,8 +50,8 @@ class PermissionMixin:
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            tm.messages.error(
-                self.request, tm.FlashMessages.NO_AUTHENTICATION.value
+            messages.error(
+                self.request, FlashMessages.NO_AUTHENTICATION.value
             )
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)

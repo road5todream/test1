@@ -3,4 +3,4 @@
 .env
 __pycache__
 test-coverage-tool
-.coverage
+*coverage*
