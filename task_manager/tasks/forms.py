@@ -13,12 +13,12 @@ class CreateTaskForm(forms.ModelForm):
                   'status',
                   'creator',
                   'executor',
-                  'label'
+                  'labels'
                   )
         widgets = {
             'description': forms.Textarea(),
             'creator': forms.HiddenInput(),
-            'label': forms.SelectMultiple(attrs={'multiple': ''})
+            'labels': forms.SelectMultiple(attrs={'multiple': ''})
         }
 
 

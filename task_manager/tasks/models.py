@@ -22,7 +22,7 @@ class Tasks(models.Model):
                                verbose_name=VerboseName.STATUS.value,
                                on_delete=models.PROTECT,
                                )
-    label = models.ManyToManyField(Labels,
+    labels = models.ManyToManyField(Labels,
                                    verbose_name=VerboseName.LABELS.value,
                                    through='RelationLink',
                                    through_fields=('task', 'label'),
