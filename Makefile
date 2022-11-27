@@ -22,5 +22,9 @@ test:
 lint:
 	poetry run flake8 task_manager
 
+install:
+	poetry install
+	poetry build
+
 test-coverage:
 	poetry run coverage run ./manage.py test && coverage report
