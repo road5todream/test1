@@ -40,4 +40,5 @@ __all__ = [
     'DeleteView',
     'PermissionRequiredMixin',
     'ProtectedError',
+    'FlashMessages',
 ]

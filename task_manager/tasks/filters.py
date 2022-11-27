@@ -49,4 +49,3 @@ class TaskFilter(django_filters.FilterSet):
             'executor',
             'labels',
         )
-

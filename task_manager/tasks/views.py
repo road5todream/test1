@@ -74,6 +74,7 @@ class DeleteTaskView(tm.LoginRequiredMixin,
     success_url = tm.reverse_lazy('tasks')
     success_message = tm.FlashMessages.TASK_SUCCESSFULLY_DELETE.value
     template_name = 'tasks/delete_task.html'
+    redirect_field_name = None
 
     def has_permission(self) -> bool:
         return self.get_object().creator.pk == self.request.user.pk

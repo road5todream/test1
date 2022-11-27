@@ -23,10 +23,10 @@ class Tasks(models.Model):
                                on_delete=models.PROTECT,
                                )
     labels = models.ManyToManyField(Labels,
-                                   verbose_name=VerboseName.LABELS.value,
-                                   through='RelationLink',
-                                   through_fields=('task', 'label'),
-                                   blank=True)
+                                    verbose_name=VerboseName.LABELS.value,
+                                    through='RelationLink',
+                                    through_fields=('task', 'label'),
+                                    blank=True)
     executor = models.ForeignKey(Users,
                                  verbose_name=VerboseName.EXECUTOR.value,
                                  on_delete=models.PROTECT,

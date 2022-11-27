@@ -62,4 +62,3 @@ class DeleteStatus(tm.PermissionMixin,
             tm.messages.error(self.request,
                               tm.FlashMessages.STATUS_IS_USING.value)
             return tm.redirect('statuses')
-

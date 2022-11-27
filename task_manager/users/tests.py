@@ -5,7 +5,7 @@ from .models import Users
 from django.urls import reverse
 
 
-class CreateUserTestCas(TestCase):
+class CrudUsersTestCase(TestCase):
     fixtures = [
         'users.json',
         'tasks.json',

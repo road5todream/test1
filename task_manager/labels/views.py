@@ -1,4 +1,3 @@
-from task_manager import services as svs
 from .models import Labels
 from .forms import CreateLabelForm, UpdateLabelForm
 from task_manager.settings import REDIRECT_TO_LOGIN
