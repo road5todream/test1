@@ -17,7 +17,7 @@
   <p>{% trans 'Status' %}: {{ task.status.name }}</p>
   <p>{% trans 'Creation date' %}: {{ task.created_at|date:'d.m.Y h:m' }} </p>
   <p>{% trans 'Labels' %}:
-  {% for label in task.label.all %}
+  {% for label in task.labels.all %}
     <ul>
 
   <li>{{ label.name }}</li>
