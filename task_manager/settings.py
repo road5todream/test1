@@ -17,17 +17,19 @@ import dj_database_url
 
 load_dotenv()
 
-DATABASE_CONFIG = dj_database_url.config(default=os.getenv('DATABASE_URL'))
+DATABASE_CONFIG = dj_database_url.config(default=os.getenv('PGDATABASE_URL'))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = [
     '*',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['*.railway.app']
 
 
 # Application definition
