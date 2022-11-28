@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     '*',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['*.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 
 # Application definition
