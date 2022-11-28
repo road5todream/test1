@@ -21,7 +21,7 @@ DATABASE_CONFIG = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRETKEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
