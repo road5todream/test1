@@ -18,6 +18,11 @@ jobs:
           pip install poetry
           make install
       - name: Run tests and lint
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          ROLLBAR_KEY: ${{ secrets.ROLLBAR_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DEBUG: True
         run: |
             make test
             make lint
