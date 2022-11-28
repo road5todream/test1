@@ -17,12 +17,13 @@ import dj_database_url
 
 load_dotenv()
 
+DATABASE_CONFIG = dj_database_url.config(default=os.getenv('DATABASE_URL'))
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRETKEY')
 
-DEBUG = False
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = [
     '*',
@@ -87,14 +88,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 
-DATABASES = dict()
-
-if DEBUG:
-    DATABASES['default'] = dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR) + '/db.sqlite3')
-else:
-    DATABASES['default'] = dj_database_url.config(
-        default=os.getenv('PGDATABASE_URL'))
+DATABASES = {
+    'default': DATABASE_CONFIG
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
