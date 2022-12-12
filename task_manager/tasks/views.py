@@ -60,7 +60,7 @@ class UpdateTaskView(PermissionMixin,
                      UpdateView,
                      ):
     model = Tasks
-    fields = '__all__'
+    form_class = CreateTaskForm
     template_name = 'tasks/update_task.html'
     success_url = reverse_lazy('tasks')
     success_message = FlashMessages.TASK_SUCCESSFULLY_CHANGED.value

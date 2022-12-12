@@ -19,7 +19,3 @@ class CreateTaskForm(forms.ModelForm):
             'creator': forms.HiddenInput(),
             'labels': forms.SelectMultiple(attrs={'multiple': ''})
         }
-
-
-class UpdateTaskForm(CreateTaskForm):
-    pass
