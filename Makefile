@@ -29,3 +29,9 @@ install:
 test-coverage:
 	poetry run coverage run ./manage.py test && coverage report
 	poetry run coverage xml
+
+dump:
+	./manage.py dumpdata tasks --indent 2 > task_manager/fixtures/tasks.json
+	./manage.py dumpdata users --indent 2 > task_manager/fixtures/users.json
+	./manage.py dumpdata labels --indent 2 > task_manager/fixtures/labels.json
+	./manage.py dumpdata statuses --indent 2 > task_manager/fixtures/statuses.json

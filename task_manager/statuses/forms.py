@@ -7,7 +7,3 @@ class CreateStatusForm(forms.ModelForm):
     class Meta:
         model = Statuses
         fields = ('name',)
-
-
-class ChangeStatusForm(CreateStatusForm):
-    pass

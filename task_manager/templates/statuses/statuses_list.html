@@ -5,7 +5,8 @@
 <br>
 <h2>{% trans 'Statuses' %}</h2>
 <a href="{% url 'create_status' %}" class="btn btn-outline-success">{% trans 'Create status' %}</a>
-
+<br>
+<br>
 {% for msg in messages %}
 {% if msg.tags == 'success' %}
 <div class="alert alert-success" role="alert">

@@ -14,7 +14,3 @@ class UserRegistrationForm(UserCreationForm):
             'password1',
             'password2',
         )
-
-
-class ChangeProfileForm(UserRegistrationForm):
-    pass

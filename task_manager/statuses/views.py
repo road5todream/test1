@@ -1,6 +1,5 @@
-from task_manager.settings import REDIRECT_TO_LOGIN
 from .models import Statuses
-from .forms import CreateStatusForm, ChangeStatusForm
+from .forms import CreateStatusForm
 from task_manager.services import PermissionMixin
 from task_manager.dataclasses import FlashMessages
 from django.shortcuts import redirect
@@ -18,7 +17,6 @@ class StatusesView(PermissionMixin,
                    ListView,
                    ):
 
-    login_url = REDIRECT_TO_LOGIN
     model = Statuses
     template_name = 'statuses/statuses_list.html'
 
@@ -34,7 +32,6 @@ class CreateStatus(PermissionMixin,
     template_name = 'statuses/create_status.html'
     success_url = reverse_lazy('statuses')
     success_message = FlashMessages.STATUS_CREATED.value
-    login_url = REDIRECT_TO_LOGIN
 
 
 class UpdateStatus(PermissionMixin,
@@ -43,10 +40,9 @@ class UpdateStatus(PermissionMixin,
                    UpdateView
                    ):
     model = Statuses
-    form_class = ChangeStatusForm
+    fields = '__all__'
     template_name = 'statuses/update_status.html'
     success_message = FlashMessages.STATUS_SUCCESSFULLY_CHANGED.value
-    login_url = REDIRECT_TO_LOGIN
     success_url = reverse_lazy('statuses')
 
 
@@ -55,7 +51,6 @@ class DeleteStatus(PermissionMixin,
                    DeleteView):
 
     model = Statuses
-    login_url = REDIRECT_TO_LOGIN
     success_url = reverse_lazy('statuses')
     template_name = 'statuses/delete_status.html'
 

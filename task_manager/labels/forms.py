@@ -8,7 +8,3 @@ class CreateLabelForm(forms.ModelForm):
 
         model = Labels
         fields = ('name',)
-
-
-class UpdateLabelForm(CreateLabelForm):
-    pass

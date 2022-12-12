@@ -1,12 +1,10 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from task_manager.settings import REDIRECT_TO_LOGIN
 from .models import Tasks
-from .forms import CreateTaskForm, UpdateTaskForm
+from .forms import CreateTaskForm
 from .filters import TaskFilter
 from django_filters.views import FilterView
-from django.contrib.auth.mixins import LoginRequiredMixin, \
-    PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from task_manager.services import PermissionMixin
 from task_manager.dataclasses import FlashMessages
 from django.contrib import messages
@@ -19,8 +17,6 @@ class TasksFilterView(PermissionMixin,
                       LoginRequiredMixin,
                       FilterView,
                       ):
-
-    login_url = REDIRECT_TO_LOGIN
     model = Tasks
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
@@ -35,7 +31,6 @@ class CreateTaskView(PermissionMixin,
 
     model = Tasks
     form_class = CreateTaskForm
-    login_url = REDIRECT_TO_LOGIN
     template_name = 'tasks/create_task.html'
     success_url = reverse_lazy('tasks')
     success_message = FlashMessages.TASK_CREATED.value
@@ -51,7 +46,6 @@ class TaskView(PermissionMixin,
                DetailView,
                ):
     model = Tasks
-    login_url = REDIRECT_TO_LOGIN
     template_name = 'tasks/view_task.html'
     context_object_name = 'task'
 
@@ -66,38 +60,34 @@ class UpdateTaskView(PermissionMixin,
                      UpdateView,
                      ):
     model = Tasks
-    form_class = UpdateTaskForm
-    login_url = REDIRECT_TO_LOGIN
+    fields = '__all__'
     template_name = 'tasks/update_task.html'
     success_url = reverse_lazy('tasks')
     success_message = FlashMessages.TASK_SUCCESSFULLY_CHANGED.value
 
 
 class DeleteTaskView(LoginRequiredMixin,
-                     PermissionRequiredMixin,
+                     UserPassesTestMixin,
                      SuccessMessageMixin,
                      DeleteView,
                      ):
-    login_url = REDIRECT_TO_LOGIN
     model = Tasks
     success_url = reverse_lazy('tasks')
     success_message = FlashMessages.TASK_SUCCESSFULLY_DELETE.value
     template_name = 'tasks/delete_task.html'
     redirect_field_name = None
 
-    def has_permission(self) -> bool:
+    def test_func(self):
         return self.get_object().creator.pk == self.request.user.pk
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
             messages.error(
-                self.request, FlashMessages.NO_AUTHENTICATION.value
+                self.request, FlashMessages.NO_PERMIT_TO_DELETE_TASK.value
             )
-            return self.handle_no_permission()
-
-        elif not self.has_permission():
+            return redirect(self.success_url)
+        else:
             messages.error(
-                request, FlashMessages.NO_PERMIT_TO_DELETE_TASK.value
+                self.request, FlashMessages.NO_AUTHENTICATION.value,
             )
-            return redirect('tasks')
-        return super().dispatch(request, *args, **kwargs)
+            return redirect('login')

@@ -24,20 +24,22 @@ class Tasks(models.Model):
                                )
     labels = models.ManyToManyField(Labels,
                                     verbose_name=VerboseName.LABELS.value,
-                                    through='RelationLink',
+                                    through='TaskLabelRelation',
                                     through_fields=('task', 'label'),
-                                    blank=True)
+                                    blank=True,
+                                    )
     executor = models.ForeignKey(Users,
                                  verbose_name=VerboseName.EXECUTOR.value,
                                  on_delete=models.PROTECT,
-                                 related_name='performer')
+                                 related_name='performer',
+                                 )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.name)
 
 
-class RelationLink(models.Model):
+class TaskLabelRelation(models.Model):
     """An intermediate model for man-to-many communication between tasks and
     labels. Needed to prohibit deletion of labels that are used"""
     task = models.ForeignKey(to='tasks.Tasks',

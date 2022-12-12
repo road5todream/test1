@@ -120,7 +120,7 @@ LOCALE_PATHS = [
 
 LOGIN_REDIRECT_URL = '/'
 
-REDIRECT_TO_LOGIN = '/login/'
+LOGIN_URL = '/login/'
 
 AUTH_USER_MODEL = 'users.Users'
 

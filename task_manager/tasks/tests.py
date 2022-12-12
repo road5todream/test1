@@ -19,14 +19,14 @@ class CrudTasksTestCase(TestCase):
         self.client = Client()
         self.login = reverse('login')
         self.tasks = reverse('tasks')
-        self.tasks_count_before_test = 5
+        self.tasks_count_before_test = 6
         self.success_code = 200
         self.status = Statuses.objects.get(pk=8)
         self.label = Labels.objects.get(pk=2)
         self.user = Users.objects.get(pk=4)
         self.data_for_form = {
             'name': 'test_task',
-            'description': 'test decription',
+            'description': 'test description',
             'status': self.status.id,
             'executor': self.user.id,
             'creator': self.user.id,
@@ -66,7 +66,7 @@ class CrudTasksTestCase(TestCase):
         request = self.client.post(url, self.data_for_form)
         self.assertRedirects(request, self.tasks)
         self.assertTrue(
-            len(Tasks.objects.all()) == 6)
+            len(Tasks.objects.all()) == 7)
 
     def test_update_task(self):
         url = reverse('update_task', args=[5])
@@ -83,7 +83,7 @@ class CrudTasksTestCase(TestCase):
         request = self.client.post(url)
         self.assertRedirects(request, self.tasks)
         self.assertTrue(
-            len(Tasks.objects.all()) == 4
+            len(Tasks.objects.all()) == 5
         )
 
     def test_delete_not_self_task(self):

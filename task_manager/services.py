@@ -48,6 +48,9 @@ class UserDeleteAccessMixin(UserChangeAccessMixin):
 class PermissionMixin:
     redirect_field_name = None
 
+    def has_permission(self) -> bool:
+        return self.get_object().creator.pk == self.request.user.pk
+
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             messages.error(

@@ -1,6 +1,5 @@
-from .forms import UserRegistrationForm, ChangeProfileForm
+from .forms import UserRegistrationForm
 from .models import Users
-from task_manager.settings import REDIRECT_TO_LOGIN
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -21,7 +20,7 @@ class RegisterUser(SuccessMessageMixin,
     model = Users
     form_class = UserRegistrationForm
     template_name = 'users/create_user.html'
-    success_url = REDIRECT_TO_LOGIN
+    success_url = '/login/'
     success_message = FlashMessages.REGISTER_SUCCESS.value
 
 
@@ -31,9 +30,8 @@ class UpdateUserView(UserChangeAccessMixin,
                      UpdateView,
                      ):
     model = Users
-    form_class = ChangeProfileForm
+    form_class = UserRegistrationForm
     template_name = 'users/update_user.html'
-    login_url = REDIRECT_TO_LOGIN
     success_url = reverse_lazy('users')
     success_message = FlashMessages.USER_SUCCESSFULLY_CHANGED.value
 
@@ -42,7 +40,6 @@ class DeleteUserView(UserDeleteAccessMixin,
                      LoginRequiredMixin,
                      DeleteView
                      ):
-    login_url = REDIRECT_TO_LOGIN
     model = Users
     success_url = reverse_lazy('users')
     template_name = 'users/delete_user.html'
