@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 20:38+0400\n"
+"POT-Creation-Date: 2023-03-03 00:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "Исполнитель"
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/dataclasses.py:10 task_manager/templates/base.html:31
+#: task_manager/dataclasses.py:10 task_manager/templates/base.html:28
 #: task_manager/templates/labels/labels_list.html:6
 #: task_manager/templates/tasks/view_task.html:19
 msgid "Labels"
@@ -136,49 +136,47 @@ msgstr "Задачу может удалить только её автор"
 msgid "Only their tasks"
 msgstr "Только свои задачи"
 
-#: task_manager/templates/base.html:14
+#: task_manager/templates/base.html:11
 msgid "Task manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/base.html:23 task_manager/templates/base.html:39
+#: task_manager/templates/base.html:20 task_manager/templates/base.html:36
 #: task_manager/templates/users/users_list.html:6
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:28
+#: task_manager/templates/base.html:25
 #: task_manager/templates/statuses/statuses_list.html:6
 msgid "Statuses"
 msgstr "Статусы"
 
-#: task_manager/templates/base.html:34
+#: task_manager/templates/base.html:31
 #: task_manager/templates/tasks/tasks_list.html:8
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/templates/base.html:46
+#: task_manager/templates/base.html:43
 msgid "Log out"
 msgstr "Выход"
 
-#: task_manager/templates/base.html:49 task_manager/templates/login.html:29
+#: task_manager/templates/base.html:46 task_manager/templates/login.html:29
 msgid "Login"
 msgstr "Вход"
 
-#: task_manager/templates/base.html:50
+#: task_manager/templates/base.html:47
 #: task_manager/templates/users/create_user.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
-#: task_manager/templates/base.html:64
-msgid "Greetings from the hexlet"
-msgstr "Привет от Хекслета!"
+#: task_manager/templates/base.html:61
+#, fuzzy
+#| msgid "Task manager"
+msgid "Simple Task Manager"
+msgstr "Менеджер задач"
 
-#: task_manager/templates/base.html:65
-msgid "Practical programming courses"
-msgstr "Практические курсы по программированию"
-
-#: task_manager/templates/base.html:66
-msgid "Learn more"
-msgstr "Узнать больше"
+#: task_manager/templates/base.html:62
+msgid "Simple and functional task manager with the necessary functionality"
+msgstr "Просто и функциональный менеджер задач с необходимой функциональностью"
 
 #: task_manager/templates/labels/create_label.html:8
 #: task_manager/templates/labels/labels_list.html:7
@@ -217,7 +215,7 @@ msgstr "Дата создания"
 
 #: task_manager/templates/labels/labels_list.html:38
 #: task_manager/templates/labels/update_label.html:13
-#: task_manager/templates/statuses/statuses_list.html:37
+#: task_manager/templates/statuses/statuses_list.html:38
 #: task_manager/templates/statuses/update_status.html:13
 #: task_manager/templates/tasks/tasks_list.html:51
 #: task_manager/templates/tasks/update_task.html:17
@@ -228,7 +226,7 @@ msgid "Change"
 msgstr "Изменить"
 
 #: task_manager/templates/labels/labels_list.html:39
-#: task_manager/templates/statuses/statuses_list.html:38
+#: task_manager/templates/statuses/statuses_list.html:39
 #: task_manager/templates/tasks/tasks_list.html:53
 #: task_manager/templates/tasks/view_task.html:28
 #: task_manager/templates/users/users_list.html:40
@@ -305,6 +303,15 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/users_list.html:23
 msgid "Fullname"
 msgstr "Полное имя"
+
+#~ msgid "Greetings from the hexlet"
+#~ msgstr "Привет от Хекслета!"
+
+#~ msgid "Practical programming courses"
+#~ msgstr "Практические курсы по программированию"
+
+#~ msgid "Learn more"
+#~ msgstr "Узнать больше"
 
 #~ msgid "Performer"
 #~ msgstr "Исполнитель"

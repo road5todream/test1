@@ -20,7 +20,6 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app',
-    'https://jun-jobs-api.online',
 ]
 
 # Application definition
