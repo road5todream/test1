@@ -169,14 +169,13 @@ msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/templates/base.html:61
-#, fuzzy
 #| msgid "Task manager"
-msgid "Simple Task Manager"
+msgid "Task Manager"
 msgstr "Менеджер задач"
 
 #: task_manager/templates/base.html:62
-msgid "Simple and functional task manager with the necessary functionality"
-msgstr "Просто и функциональный менеджер задач с необходимой функциональностью"
+msgid "Simple and functional task manager"
+msgstr "Простой и функциональный менеджер задач"
 
 #: task_manager/templates/labels/create_label.html:8
 #: task_manager/templates/labels/labels_list.html:7
